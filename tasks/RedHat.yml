@@ -1,0 +1,15 @@
+---
+- name: Detect RedHat flavor
+  set_fact:
+    rh_flavor: "{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif %}"
+
+- name: Configure Nginx YUM repo
+  yum_repository:
+    name: nginx
+    description: Nginx vendor repository
+    baseurl: http://nginx.org/packages/{{ rh_flavor }}/$releasever/$basearch
+    gpgcheck: true
+
+- name: Install Nginx package
+  yum:
+    name: nginx
