@@ -1,4 +1,8 @@
 ---
+- name: Install Nginx GPG key
+  rpm_key:
+    key: http://nginx.org/keys/nginx_signing.key
+
 - name: Detect RedHat flavor
   set_fact:
     rh_flavor: "{% if ansible_distribution == 'CentOS' %}centos{% else %}rhel{% endif %}"
