@@ -1,0 +1,8 @@
+---
+galaxy_info:
+  role_name: devgateway.vendor-nginx
+  description: Install Nginx from upstream repo
+  author: Development Gateway
+  company: Development Gateway
+  license: GPLv3+
+  dependencies: []
